@@ -3,24 +3,26 @@
 <head>
     <meta charset="ISO-8859-1"/>
     <title>Students</title>
+    <title>Login to Victor Sleiman Exercise Demo</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
-
-<form action="#" method="get" th:action="@{/getStudent}" th:object="${student}">
-    <table border="1">
-        <tr>
-            <td><label th:text="#{msg.id}"/></td>
-            <td><input th:field="*{id}" type="number"/></td>
-        </tr>
-        <tr>
-            <td><label th:text="#{msg.name}"/></td>
-            <td><input th:field="*{name}" type="text"/></td>
-        </tr>
-        <tr>
-            <td><input type="submit" value="Submit"/></td>
-        </tr>
-    </table>
-</form>
-
+<div style="text-align: center">
+    <div style="margin: 20px;">
+        <h1>Students:</h1>
+        <div style="margin-top: 20px;">
+            <table border="1" width="300px" >
+                <thead style="background-color: silver;color:white;font-weight:bold;font-size:20;border: 1px solid gray;height:40px;">
+                    <td>Name</td>
+                    <td>Age</td>
+                </thead>
+                <tr th:each="student : ${students}">
+                    <td><p th:text="${student.name}"></p></td>
+                    <td><p th:text="${student.age}"></p></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
 </body>
 </html>

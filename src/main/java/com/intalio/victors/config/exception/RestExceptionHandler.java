@@ -2,7 +2,6 @@ package com.intalio.victors.config.exception;
 
 import com.intalio.victors.model.ErrorResponse;
 import com.intalio.victors.model.FieldError;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -20,7 +19,6 @@ import java.util.stream.Collectors;
 public class RestExceptionHandler {
 
     @ExceptionHandler(ResponseStatusException.class)
-    @ApiResponse(responseCode = "4xx/5xx", description = "Error")
     public ResponseEntity<ErrorResponse> handleNotFound(final ResponseStatusException exception) {
         final ErrorResponse errorResponse = new ErrorResponse();
         errorResponse.setHttpStatus(exception.getStatus().value());

@@ -2,7 +2,6 @@ package com.intalio.victors.rest.exercise;
 
 import com.intalio.victors.model.exercise.CourseDTO;
 import com.intalio.victors.service.exercise.CourseService;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -33,7 +32,6 @@ public class CourseResource {
     }
 
     @PostMapping
-    @ApiResponse(responseCode = "201")
     public ResponseEntity<Long> createCourse(@RequestBody @Valid final CourseDTO courseDTO) {
         return new ResponseEntity<>(courseService.create(courseDTO), HttpStatus.CREATED);
     }
@@ -46,7 +44,6 @@ public class CourseResource {
     }
 
     @DeleteMapping("/{id}")
-    @ApiResponse(responseCode = "204")
     public ResponseEntity<Void> deleteCourse(@PathVariable final Long id) {
         courseService.delete(id);
         return ResponseEntity.noContent().build();
