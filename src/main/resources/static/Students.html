@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="ISO-8859-1"/>
+    <title>Students</title>
+</head>
+<body>
+
+<form action="#" method="get" th:action="@{/getStudent}" th:object="${student}">
+    <table border="1">
+        <tr>
+            <td><label th:text="#{msg.id}"/></td>
+            <td><input th:field="*{id}" type="number"/></td>
+        </tr>
+        <tr>
+            <td><label th:text="#{msg.name}"/></td>
+            <td><input th:field="*{name}" type="text"/></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Submit"/></td>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>
